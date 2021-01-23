@@ -1,8 +1,9 @@
 CREATE USER facilityadmin WITH PASSWORD 'faci1ityAdmin';
 CREATE DATABASE facility_booking;
-GRANT ALL PRIVILEGES ON DATABASE facility_booking TO facilityadmin;
+ALTER DATABASE facility_booking OWNER TO facilityadmin;
 \c facility_booking
 CREATE SCHEMA booking;
+ALTER SCHEMA booking OWNER TO facilityadmin;
 
 CREATE TABLE booking.booking_config
 (
@@ -26,6 +27,7 @@ CREATE TABLE booking.booking
 	id SERIAL,
 	user_id text,
 	email text,
+	purpose text,
 	facility_id integer,
 	start_dt timestamptz,
 	end_dt timestamptz,
