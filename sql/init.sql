@@ -19,8 +19,8 @@ ALTER TABLE booking.booking_config OWNER to facilityadmin;
 
 INSERT INTO booking.booking_config(key, value) VALUES ('max_hr_per_booking', '2');
 INSERT INTO booking.booking_config(key, value) VALUES ('max_bookahead', '15');
-INSERT INTO booking.booking_config(key, value) VALUES ('booking_start_time', '8');
-INSERT INTO booking.booking_config(key, value) VALUES ('booking_end_time', '18');
+INSERT INTO booking.booking_config(key, value) VALUES ('booking_start_time', '08:00');
+INSERT INTO booking.booking_config(key, value) VALUES ('booking_end_time', '18:00');
 
 CREATE TABLE booking.booking
 (
