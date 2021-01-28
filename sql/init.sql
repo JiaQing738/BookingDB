@@ -43,7 +43,7 @@ CREATE TABLE booking.facility_detail
 (
 	id SERIAL,
 	name text UNIQUE,
-	level integer,
+	level text,
 	description text,
 	status text,
 	transaction_dt timestamptz,
