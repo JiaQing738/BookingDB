@@ -2,6 +2,7 @@ CREATE USER facilityadmin WITH PASSWORD 'faci1ityAdmin';
 CREATE DATABASE facility_booking;
 ALTER DATABASE facility_booking OWNER TO facilityadmin;
 \c facility_booking
+CREATE EXTENSION pgcrypto;
 CREATE SCHEMA booking;
 ALTER SCHEMA booking OWNER TO facilityadmin;
 
@@ -17,6 +18,7 @@ TABLESPACE pg_default;
 
 ALTER TABLE booking.booking_config OWNER to facilityadmin;
 
+/*Default Config*/
 INSERT INTO booking.booking_config(key, value) VALUES ('max_hr_per_booking', '2');
 INSERT INTO booking.booking_config(key, value) VALUES ('max_bookahead', '15');
 INSERT INTO booking.booking_config(key, value) VALUES ('booking_start_time', '08:00');
@@ -53,3 +55,23 @@ CREATE TABLE booking.facility_detail
 TABLESPACE pg_default;
 
 ALTER TABLE booking.facility_detail OWNER to facilityadmin;
+
+CREATE TABLE booking.account
+(
+    id SERIAL,
+    user_id text NOT NULL UNIQUE,
+	admin boolean,
+	email text,
+    password text NOT NULL,
+	CONSTRAINT account_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE booking.account OWNER to facilityadmin;
+
+/*Mockup Data*/
+INSERT INTO booking.account(user_id, admin, email, password) VALUES ('admin', true, 'admin@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
+INSERT INTO booking.account(user_id, admin, email, password) VALUES ('userOne', false, 'userOne@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
+INSERT INTO booking.account(user_id, admin, email, password) VALUES ('userTwo', false, 'userTwo@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
+INSERT INTO booking.account(user_id, admin, email, password) VALUES ('userThree', false, 'userThree@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
