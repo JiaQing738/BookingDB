@@ -72,6 +72,12 @@ ALTER TABLE booking.account OWNER to facilityadmin;
 
 /*Mockup Data*/
 INSERT INTO booking.account(user_id, admin, email, password) VALUES ('admin', true, 'admin@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
-INSERT INTO booking.account(user_id, admin, email, password) VALUES ('userOne', false, 'userOne@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
-INSERT INTO booking.account(user_id, admin, email, password) VALUES ('userTwo', false, 'userTwo@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
-INSERT INTO booking.account(user_id, admin, email, password) VALUES ('userThree', false, 'userThree@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
+INSERT INTO booking.account(user_id, admin, email, password) VALUES ('john', false, 'john@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
+INSERT INTO booking.account(user_id, admin, email, password) VALUES ('james', false, 'james@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
+INSERT INTO booking.account(user_id, admin, email, password) VALUES ('peter', false, 'peter@mail.com', crypt('P@ssw0rd123', gen_salt('bf')));
+INSERT INTO booking.facility_detail VALUES (1, 'Meeting Room L1-01', 'L1', 'Meeting Room', 'OPEN', '2021-02-02 13:43:13.158954+00');
+INSERT INTO booking.facility_detail VALUES (2, 'Meeting Room L1-02', 'L1', 'Meeting Room', 'OPEN', '2021-02-02 13:43:33.93617+00');
+INSERT INTO booking.facility_detail VALUES (3, 'Meeting Room L2-01', 'L2', 'Meeting Room', 'MAINTENANCE', '2021-02-02 13:43:57.982175+00');
+INSERT INTO booking.facility_detail VALUES (4, 'Meeting Room L2-02', 'L2', 'Meeting Room', 'OPEN', '2021-02-02 13:44:13.422796+00');
+INSERT INTO booking.facility_detail VALUES (5, 'Training Room L1-01', 'L1', 'Training Room', 'OPEN', '2021-02-02 13:45:12.221773+00');
+INSERT INTO booking.facility_detail VALUES (6, 'Training Room L1-02', 'L1', 'Training Room', 'OPEN', '2021-02-02 13:45:30.445954+00');
